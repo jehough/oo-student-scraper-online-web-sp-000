@@ -15,13 +15,26 @@ class Scraper
       :profile_url => student.css('a').attribute('href').value
     }
     end
+<<<<<<< HEAD
     student_array
+=======
+    binding.pry
+    student_array
+  end
+  def find_social(profile_noki)
+    social = []
+    profile.css('div.social-icon-container').css('a').each do |site|
+      social << site.attribute('href').value
+    end
+    social
+>>>>>>> 2abdceeb8e8260701eb022b463cc64ed59e217da
   end
 
 
   def self.scrape_profile_page(profile_url)
     html = File.read(profile_url)
     profile = Nokogiri::HTML(html)
+<<<<<<< HEAD
     social = []
     profile.css('div.social-icon-container').css('a').each do |site|
       social << site.attribute('href').value
@@ -43,5 +56,8 @@ class Scraper
       end
     end
     hash
+=======
+    social = find_social(profile)
+>>>>>>> 2abdceeb8e8260701eb022b463cc64ed59e217da
   end
 end
